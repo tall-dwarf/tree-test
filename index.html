@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang=ru>
+
+<head>
+    <meta charset=UTF-8>
+    <meta name=viewport content=width=device-width, initial-scale=1.0>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="tree"></div>
+
+
+    <script src="./app/api.js"></script>
+    <script src="./app/helpers.js"></script>
+    <script src="./app/tree.js"></script>
+
+    <script>
+
+        async function main(){
+            let { services } = await loadServices();
+            services = transformationServices(services)
+            let rootServices = getRootServices(services)
+
+            for (const serviceItem of rootServices) {
+                generateThree(serviceItem);
+            }
+        }
+
+        main()
+
+    </script>
+
+    <script>
+        document.addEventListener("click", (event) => {
+            if (event.target.closest("div").dataset.content) {
+                let contentId = event.target.closest("div").dataset.content
+                const content = document.querySelector(`#${contentId}`)
+                content.classList.toggle("tree-branch-content--open");
+            }
+        })
+    </script>
+
+</body>
+
+</html>

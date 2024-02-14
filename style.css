@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.tree{
+    padding: 50px
+}
+
+.tree-branch__icon{
+    width: 15px;
+    height: 15px;
+}
+
+.tree-branch-head{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.tree-branch-content{
+    max-height: 0px;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+
+.tree-branch-content--open{
+    max-height: 300px;
+}
+
+
+.tree-branch-content > .tree-sheet{
+    margin-left: 30px;
+}
+
+.tree-branch-content > .tree-branch{
+    margin-left: 30px;
+}
